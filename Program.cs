@@ -34,7 +34,7 @@ namespace confluent_kafka_consumer
                 SslKeystorePassword = "datahub",
                 Debug = "consumer,cgrp,topic,fetch",
                 //Debug = "security",
-                GroupId = "group-pubsub-kaas-dev",
+                GroupId = "clinet-consumer-group",
                 EnableAutoCommit = false,
                 AutoOffsetReset = AutoOffsetReset.Earliest,
                 LogConnectionClose = false,
