@@ -17,10 +17,9 @@ namespace confluent_kafka_consumer
                 Url = "https://schema-registry:8181",
                 RequestTimeoutMs = 5000,
                 MaxCachedSchemas = 10,
-                ValueSubjectNameStrategy = SubjectNameStrategy.TopicRecord,
                 SslCaLocation = "C:/Users/raul/workspace/kafka-ssl-compose/secrets/CAroot.pem",
-                SslCertificateLocation = "C:/Users/raul/workspace/kafka-ssl-compose/secrets/schema-registry.keystore.jks",
-                SslCertificatePassword = "datahub"
+                SslKeystoreLocation = "C:/Users/raul/workspace/kafka-ssl-compose/secrets/schema-registry.keystore.jks",
+                SslKeystorePassword = "datahub"
             };
 
 
@@ -63,7 +62,7 @@ namespace confluent_kafka_consumer
                         Console.WriteLine("Consumed has finished");
 
 
-                        Console.WriteLine($"ClientId '{cr.Value.clienteId}' and Name '{cr.Value.name}' at: '{cr.TopicPartitionOffset}'.");
+                        Console.WriteLine($"ClientId '{cr.Message.Value.clienteId}' and Name '{cr.Message.Value.name}' at: '{cr.TopicPartitionOffset}'.");
                         consumer.Commit(cr);
                     }
                     catch (ConsumeException e)
