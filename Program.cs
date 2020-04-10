@@ -17,9 +17,16 @@ namespace confluent_kafka_consumer
                 Url = "https://schema-registry:8181",
                 RequestTimeoutMs = 5000,
                 MaxCachedSchemas = 10,
+<<<<<<< HEAD
                 SslCaLocation = "C:/Users/raul/workspace/kafka-ssl-compose/secrets/CAroot.pem",
                 SslKeystoreLocation = "C:/Users/raul/workspace/kafka-ssl-compose/secrets/schema-registry.keystore.jks",
                 SslKeystorePassword = "datahub"
+=======
+                ValueSubjectNameStrategy = SubjectNameStrategy.TopicRecord,
+                SslCaLocation = "/Users/raul/Developer/workspace-opensource/kafka-ssl-compose/tmp/datahub-ca.crt",
+                SslCertificateLocation = "/Users/raul/Developer/workspace-opensource/kafka-ssl-compose/secrets/schema-registry.keystore.jks",
+                SslCertificatePassword = "datahub"
+>>>>>>> e9da3d9c8439056f770a0d855e9bfefe25b9cdbe
             };
 
 
@@ -28,12 +35,12 @@ namespace confluent_kafka_consumer
                 BootstrapServers = "kafka-ssl:9092",
                 ClientId = "1020",
                 SecurityProtocol = SecurityProtocol.Ssl,
-                SslCaLocation = "C:/Users/raul/workspace/kafka-ssl-compose/secrets/CAroot.pem",
-                SslKeystoreLocation = "C:/Users/raul/workspace/kafka-ssl-compose/secrets/consumer.keystore.jks",
+                SslCaLocation = "/Users/raul/Developer/workspace-opensource/kafka-ssl-compose/tmp/datahub-ca.crt",
+                SslKeystoreLocation = "/Users/raul/Developer/workspace-opensource/kafka-ssl-compose/secrets/consumer.keystore.jks",
                 SslKeystorePassword = "datahub",
                 Debug = "consumer,cgrp,topic,fetch",
                 //Debug = "security",
-                GroupId = "group-pubsub-kaas-dev",
+                GroupId = "clinet-consumer-group",
                 EnableAutoCommit = false,
                 AutoOffsetReset = AutoOffsetReset.Earliest,
                 LogConnectionClose = false,
@@ -52,7 +59,7 @@ namespace confluent_kafka_consumer
                     .SetValueDeserializer(new AvroDeserializer<Cliente>(schemaRegistry).AsSyncOverAsync())
                     .Build())
             {
-                consumer.Subscribe("kaas-rest-proxy-sample-topic");
+                consumer.Subscribe("client");
                 while (true)
                 {
                     try
