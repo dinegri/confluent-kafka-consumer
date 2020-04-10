@@ -17,16 +17,9 @@ namespace confluent_kafka_consumer
                 Url = "https://schema-registry:8181",
                 RequestTimeoutMs = 5000,
                 MaxCachedSchemas = 10,
-<<<<<<< HEAD
                 SslCaLocation = "C:/Users/raul/workspace/kafka-ssl-compose/secrets/CAroot.pem",
                 SslKeystoreLocation = "C:/Users/raul/workspace/kafka-ssl-compose/secrets/schema-registry.keystore.jks",
                 SslKeystorePassword = "datahub"
-=======
-                ValueSubjectNameStrategy = SubjectNameStrategy.TopicRecord,
-                SslCaLocation = "/Users/raul/Developer/workspace-opensource/kafka-ssl-compose/tmp/datahub-ca.crt",
-                SslCertificateLocation = "/Users/raul/Developer/workspace-opensource/kafka-ssl-compose/secrets/schema-registry.keystore.jks",
-                SslCertificatePassword = "datahub"
->>>>>>> e9da3d9c8439056f770a0d855e9bfefe25b9cdbe
             };
 
 
